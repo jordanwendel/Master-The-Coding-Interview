@@ -14,7 +14,7 @@ class HashTable
 			hash = (hash + key.charCodeAt(i) * i) % this.data.length;
 		}
 		return hash;
-	}
+	} // O(1)
 
 	// set key and value pair to an address in memory that is specified by hash function
 	set(key, value)
@@ -31,7 +31,7 @@ class HashTable
 			this.data[address].push([key, value]);
 			return this.data;
 		}
-	}
+	} // O(1)
 
 	// get value of key
 	get(key)
@@ -41,13 +41,21 @@ class HashTable
 		
 		if (currentBucket.length)
 		{
-
+			for (let i = 0; i < currentBucket.length; i++)
+			{
+				if (currentBucket[i][0] === key)
+				{
+					return currentBucket[i][1];
+				}
+			} // O(1) assuming no collisions
 		}
 		return undefined;
-	}
+	} 
 }
 
+// main starts here
 const myHashTable = new HashTable(50);
 myHashTable.set('grapes', 10000);
 myHashTable.set('apples', 54);
+console.log(myHashTable.get('apples'));
 console.log(myHashTable.get('grapes'));
