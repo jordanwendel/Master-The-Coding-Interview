@@ -18,11 +18,9 @@ class HashTable {
 
 		if (!this.data[address]) {
 			this.data[address] = [];
-			this.data[address].push([key, value]);
-		} else {
-			this.data[address].push([key, value]);
-			return this.data;
 		}
+		this.data[address].push([key, value]);
+		return this.data;
 	} // O(1)
 
 	// get value of key
