@@ -11,9 +11,11 @@ class Stack {
 		this.bottom = null;
 		this.length = 0;
 	}
+
 	peek() {
 		return this.top;
 	}
+
 	push(value) {
 		const newNode = new Node(value);
 		if (this.length === 0) {
@@ -27,6 +29,7 @@ class Stack {
 		this.length++;
 		return this;
 	}
+
 	pop() {
 		if (!this.top) {
 			return null;
